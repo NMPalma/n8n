@@ -1,6 +1,6 @@
 {
   "name": "n8n-monorepo",
-  "version": "1.109.0",
+  "version": "1.111.0",
   "private": true,
   "engines": {
     "node": ">=22.16",
@@ -36,7 +36,7 @@
     "lint:fix": "turbo run lint:fix",
     "optimize-svg": "find ./packages -name '*.svg' ! -name 'pipedrive.svg' -print0 | xargs -0 -P16 -L20 npx svgo",
     "setup-backend-module": "node scripts/ensure-zx.mjs && zx scripts/backend-module/setup.mjs",
-    "start": "run-script-os",
+    "start": "npx n8n start",
     "start:default": "cd packages/cli/bin && ./n8n",
     "start:tunnel": "./packages/cli/bin/n8n start --tunnel",
     "start:windows": "cd packages/cli/bin && n8n",
@@ -48,6 +48,9 @@
     "watch": "turbo run watch --concurrency=30",
     "webhook": "./packages/cli/bin/n8n webhook",
     "worker": "./packages/cli/bin/n8n worker"
+  },
+  "dependencies": {
+    "n8n": "^1.111.0"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.0",
